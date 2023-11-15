@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class Player1Controller : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class Player1Controller : MonoBehaviour
     public float staminaRegenDelay = 3f;
     public float staminaRegenRate = 1f;
     public float maxStamina = 100f;
+    public float deceleration = 10;
+    public float acceleration = 50;
+    public float maxSpeed = 100;
 
     public float currentStamina;
     private bool isGrounded;
@@ -23,10 +27,30 @@ public class Player1Controller : MonoBehaviour
     {
         playerRigidbody = GetComponent<Rigidbody>();
         currentStamina = maxStamina;
+        moveSpeed = 0;
     }
 
     void Update()
     {
+        if(Keyboard.current.wKey.isPressed || Keyboard.current.sKey.isPressed || Keyboard.current.aKey.isPressed || Keyboard.current.dKey.isPressed)
+        {
+            moveSpeed += Time.deltaTime * acceleration;
+        }
+        else
+        {
+            moveSpeed -= Time.deltaTime * deceleration;
+        }
+
+        if(moveSpeed < 0)
+        {
+            moveSpeed = 0;
+        }
+        if(moveSpeed > maxSpeed)
+        {
+            moveSpeed = maxSpeed;
+        }
+
+
         // Ground check
         isGrounded = Physics.Raycast(transform.position, Vector3.down, 0.1f);
 
@@ -35,8 +59,8 @@ public class Player1Controller : MonoBehaviour
         float verticalInput = Input.GetAxis("Horizontal");
 
         Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput).normalized;
-        Vector3 moveDirection = Vector3.zero;
-
+        Vector3 moveDirection;
+        moveDirection = Vector3.Lerp(movement, Vector3.zero, deceleration);
         // Restrict movement to eight directions
         if (movement.magnitude > 0)
         {
