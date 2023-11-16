@@ -57,13 +57,13 @@ public class DriverController : MonoBehaviour
         if(Keyboard.current.dKey.isPressed)
         {
             
-            rb.velocity += transform.right * Time.deltaTime * acceleration;
+            
             transform.Rotate(0, 0.1f, 0);
 
         }
         else if(Keyboard.current.aKey.isPressed)
         {
-            rb.velocity -= transform.right * Time.deltaTime * acceleration;
+           
             transform.Rotate(0, -0.1f, 0);
         }
 
