@@ -29,7 +29,7 @@ public class DriverController : MonoBehaviour
     {
         MovePlayer();
 
-        if (acceleration > maxSpeed)
+        if (acceleration>= maxSpeed)
         {
             acceleration = maxSpeed;
         }
