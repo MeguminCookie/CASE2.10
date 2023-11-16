@@ -7,7 +7,7 @@ public class RangedEnemyBehavior : MonoBehaviour
 {
     [SerializeField] private Transform playerTransform;
     [SerializeField] private float stopDistance;
-    [SerializeField] private float range = 20f;
+    [SerializeField] private float range = 20f; 
     [SerializeField] private LayerMask raycastLayerMask;
 
     [SerializeField] private float largerShootInterval = 3f;
@@ -126,7 +126,14 @@ public class RangedEnemyBehavior : MonoBehaviour
         }
         else
         {
-            enemyNavMeshAgent.SetDestination(transform.position);
+            if (!enemyFieldOfView.canSeePlayer)
+            {
+                enemyNavMeshAgent.SetDestination(playerTransform.position);
+            }
+            else
+            {
+                enemyNavMeshAgent.SetDestination(transform.position);
+            }
         }
         yield return null;
     }
