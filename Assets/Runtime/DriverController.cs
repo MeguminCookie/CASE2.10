@@ -29,7 +29,7 @@ public class DriverController : MonoBehaviour
     {
         MovePlayer();
 
-        if (acceleration>= maxSpeed)
+        if (acceleration > maxSpeed)
         {
             acceleration = maxSpeed;
         }
@@ -46,22 +46,22 @@ public class DriverController : MonoBehaviour
     {
 
         
-        if(Keyboard.current.wKey.isPressed)
+        if(Keyboard.current.upArrowKey.isPressed)
         {
             rb.velocity += transform.forward * Time.deltaTime* acceleration;
         }
-        else if(Keyboard.current.sKey.isPressed)
+        else if(Keyboard.current.downArrowKey.isPressed)
         {
             rb.velocity -= transform.forward * Time.deltaTime * acceleration;
         }
-        if(Keyboard.current.dKey.isPressed)
+        if(Keyboard.current.rightArrowKey.isPressed)
         {
             
             
             transform.Rotate(0, 0.1f, 0);
 
         }
-        else if(Keyboard.current.aKey.isPressed)
+        else if(Keyboard.current.leftArrowKey.isPressed)
         {
            
             transform.Rotate(0, -0.1f, 0);
@@ -69,7 +69,7 @@ public class DriverController : MonoBehaviour
 
       
 
-        if(Keyboard.current.aKey.isPressed || Keyboard.current.sKey.isPressed || Keyboard.current.dKey.isPressed || Keyboard.current.wKey.isPressed)
+        if(Keyboard.current.leftArrowKey.isPressed || Keyboard.current.downArrowKey.isPressed || Keyboard.current.rightArrowKey.isPressed || Keyboard.current.upArrowKey.isPressed)
         {
             acceleration += Time.deltaTime * accelerationSpeed ;
         }
