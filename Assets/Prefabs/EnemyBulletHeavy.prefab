@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2332646609132513739}
   - component: {fileID: 7085076978946901051}
   - component: {fileID: -1419463722146597272}
-  - component: {fileID: -5460298401249998115}
+  - component: {fileID: 2150316180466826031}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: EnemyBulletHeavy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-5460298401249998115
+--- !u!114 &2150316180466826031
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 215418569531538791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ebdd167ce586e14695cd942ee5f0f95, type: 3}
+  m_Script: {fileID: 11500000, guid: 20cfe1c3112a25e4692493239da78d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 25
