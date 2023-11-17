@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player2Controller : MonoBehaviour
 {
@@ -37,13 +38,14 @@ public class Player2Controller : MonoBehaviour
 
     void RotateUpperBody()
     {
-        float verticalRotation = Input.GetKey(KeyCode.K) ? rotationSpeed : (Input.GetKey(KeyCode.I) ? -rotationSpeed : 0f);
-        float horizontalRotation = Input.GetKey(KeyCode.L) ? rotationSpeed : (Input.GetKey(KeyCode.J) ? -rotationSpeed : 0f);
-
-        Vector3 currentRotation = transform.localRotation.eulerAngles;
-        float clampedVerticalRotation = Mathf.Clamp(currentRotation.x + verticalRotation, 0f, 0f);
-
-        transform.localRotation = Quaternion.Euler(clampedVerticalRotation, currentRotation.y + horizontalRotation, currentRotation.z);
+       if(Keyboard.current.qKey.isPressed)
+        {
+            transform.Rotate(0, -80f* Time.deltaTime, 0);
+        }
+       else if(Keyboard.current.dKey.isPressed)
+        {
+            transform.Rotate(0, 80f* Time.deltaTime, 0);
+        }
     }
 
     void FireProjectile()

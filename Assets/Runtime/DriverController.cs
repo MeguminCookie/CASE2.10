@@ -15,7 +15,7 @@ public class DriverController : MonoBehaviour
     [SerializeField] private GameObject driver;
     private CharacterController characterController;
     private Rigidbody rb;
-   
+    [SerializeField] private float rotateSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -58,13 +58,13 @@ public class DriverController : MonoBehaviour
         {
             
             
-            transform.Rotate(0, 0.1f, 0);
+            transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
 
         }
         else if(Keyboard.current.leftArrowKey.isPressed)
         {
            
-            transform.Rotate(0, -0.1f, 0);
+            transform.Rotate(0, -rotateSpeed * Time.deltaTime , 0);
         }
 
       
