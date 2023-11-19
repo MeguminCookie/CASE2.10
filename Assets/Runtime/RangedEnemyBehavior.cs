@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class RangedEnemyBehavior : MonoBehaviour
 {
+
+    [Header("AI-Stuff")]
     [SerializeField] private Transform playerTransform;
     [SerializeField] private float stopDistance;
     [SerializeField] private float range = 20f; 
@@ -18,6 +20,7 @@ public class RangedEnemyBehavior : MonoBehaviour
 
     public GameObject smallBullet;
     public GameObject largeBullet;
+    public GameObject player;
 
 
     private NavMeshAgent enemyNavMeshAgent;
@@ -27,10 +30,14 @@ public class RangedEnemyBehavior : MonoBehaviour
     private bool canShootLarge = true;
     private EnemyFieldOfView enemyFieldOfView;
 
+
+
     private void Start()
     {
         enemyNavMeshAgent = GetComponent<NavMeshAgent>();
         enemyFieldOfView = GetComponent<EnemyFieldOfView>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerTransform = player.transform;
 
         StartCoroutine(ShootTimerSmall());
         StartCoroutine(ShootTimerLarge());
@@ -136,5 +143,16 @@ public class RangedEnemyBehavior : MonoBehaviour
             }
         }
         yield return null;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PlayerBullet"))
+        {
+            
+
+
+        }
+
     }
 }
