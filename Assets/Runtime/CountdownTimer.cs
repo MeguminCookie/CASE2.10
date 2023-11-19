@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +13,7 @@ public class CountdownTimer : MonoBehaviour
     private int minutes;
     private int seconds;
     private float timeLeft;
+    private string timeText;
     [SerializeField] private TextMeshProUGUI timeLeftText;
     [SerializeField] private TextMeshProUGUI timeAddedPrefab;
     private float timeAdded;
@@ -23,7 +25,7 @@ public class CountdownTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TimerChange();
+        timeLeftText.text = TimerChange();
 
         if(Keyboard.current.spaceKey.wasPressedThisFrame)
         {
@@ -34,38 +36,24 @@ public class CountdownTimer : MonoBehaviour
     public void TimeAdder(float timetToAdd)
     {
         timeAddedPrefab.SetText("+" + timetToAdd + "SEC");
-        Instantiate(timeAddedPrefab);
+        //Instantiate(timeAddedPrefab);
         timeLeft += timetToAdd;
     }
 
-    private void TimerChange()
-    {
-        seconds = Convert.ToInt32(timeLeft);
-        
-        timeLeft -= Time.deltaTime;
-        if(timeLeft >= 60)
-        {
-            timeLeft -= 60;
-            minutes += 1;
-        }
-        if(timeLeft < 0 && minutes ==0)
-        {
-            Debug.Log("GameOver");
-        }
-        else if(timeLeft <0)
-        {
-            timeLeft = 60;
-            minutes -= 1;
-        }
 
-        if(seconds >= 10)
-        {
-            timeLeftText.SetText(minutes + ":" + seconds);
-        }
-        else
-        {
-            timeLeftText.SetText("0" + minutes + ":0"  + seconds);
-        }
+
+    private string TimerChange()
+    {
+        timeLeft -= Time.deltaTime;
+
+        var minutes = timeLeft / 60;
+        var seconds = timeLeft % 60;
+        var miliseconds = timeLeft * 10;
+        miliseconds = miliseconds % 10;
+        timeText = String.Format("{0:00}:{1:00}:{2:0}", minutes, seconds, miliseconds);
+
+        return timeText;
 
     }
 }
+
