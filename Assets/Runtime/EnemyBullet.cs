@@ -1,25 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    public int damage = 10; // You can set this value in the Unity Editor (ja dit is van chat gpt)
+    [SerializeField] private float timeDamage;
+    [SerializeField] private float bulletSpeed;
+    [SerializeField] private GameObject explosionEffectPrefab;
+    private GameObject gameManager;
+    private CountdownTimer timer;
+    private Rigidbody rb;
 
-    private void OnTriggerEnter(Collider other)
+
+    private void Start()
     {
-        if (other.CompareTag("Player"))
-        {
-            // Assuming the enemy has a script named EnemyHealth
-            // PlayerHealth pnemyHealth = other.GetComponent<PlayerHealth>();
-
-            /*
-            if (playerHealth != null)
-            {
-                playerHealth.TakeDamage(damage);
-                // game over sequence
-            }
-            */
-        }
+        gameManager = GameObject.Find("Gamemanager");
+        timer = gameManager.GetComponent<CountdownTimer>();
+        rb = GetComponent<Rigidbody>();
     }
+
+    private void Update()
+    {
+        rb.MovePosition(transform.position - transform.forward * Time.deltaTime * bulletSpeed);
+
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+
+        }
+        else if(collision.gameObject.CompareTag("Player"))
+        {
+            timer.TimeAdder(timeDamage);
+            Instantiate(explosionEffectPrefab, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+       Instantiate(explosionEffectPrefab,transform.position, transform.rotation);
+       Destroy(gameObject);
+    }
+
+    public float GetTimeDamage()
+    {
+        return timeDamage;
+    }
+
+
 }

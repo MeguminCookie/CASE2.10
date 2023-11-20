@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHitDetection : MonoBehaviour
 {
     [SerializeField] private GameObject gameTimerCountdown;
+    private EnemyBullet enemyBullet;
     private CountdownTimer gameTimer;
 
     // Start is called before the first frame update
@@ -19,12 +20,14 @@ public class PlayerHitDetection : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollsionEnter(Collision other)
     {
         if(other.gameObject.CompareTag("EnemyBullet"))
         {
-            Destroy(other.gameObject);
-            gameTimer.TimeAdder(-10f);
+            enemyBullet = other.gameObject.GetComponent<EnemyBullet>();
+            gameTimer.TimeAdder(enemyBullet.GetTimeDamage());
+            
+            
         }
     }
 }

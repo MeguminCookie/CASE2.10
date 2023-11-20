@@ -39,8 +39,8 @@ public class RangedEnemyBehavior : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerTransform = player.transform;
 
-        StartCoroutine(ShootTimerSmall());
-        StartCoroutine(ShootTimerLarge());
+        //StartCoroutine(ShootTimerSmall());
+        //StartCoroutine(ShootTimerLarge());
     }
 
     private void Update()
@@ -49,11 +49,11 @@ public class RangedEnemyBehavior : MonoBehaviour
         distance = dist;
         StartCoroutine(MoveEnemy());
 
-        TryShootLarge(largerWeaponTransform);
-        TryShootSmall(smallerWeaponTransform);
+        //TryShootLarge(largerWeaponTransform);
+        //TryShootSmall(smallerWeaponTransform);
 
     }
-    private IEnumerator ShootTimerSmall()
+    /*private IEnumerator ShootTimerSmall()
     {
         while (true)
         {
@@ -111,7 +111,7 @@ public class RangedEnemyBehavior : MonoBehaviour
 
             canShootLarge = false;
         }
-    }
+    } */
 
     /*
     private bool HasLineOfSight()

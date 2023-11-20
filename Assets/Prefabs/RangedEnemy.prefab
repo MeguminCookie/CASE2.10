@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6700046359670246014}
   m_Layer: 0
   m_Name: Wheel
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1619,9 +1619,10 @@ GameObject:
   - component: {fileID: 4821063605625005148}
   - component: {fileID: 8536902721462446734}
   - component: {fileID: 6312439596628613075}
+  - component: {fileID: 7320273374029920390}
   m_Layer: 0
   m_Name: RangedEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1640,6 +1641,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1883584545191608745}
+  - {fileID: 3900367985998444459}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &4595271627017899949
@@ -1691,6 +1693,7 @@ MonoBehaviour:
     type: 3}
   largeBullet: {fileID: 215418569531538791, guid: 0f560f34485aa3b49b6ae10314b9386c,
     type: 3}
+  player: {fileID: 0}
 --- !u!114 &8536902721462446734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1725,7 +1728,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5986d6c353eb9304a9a9e58353479734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToAdd: 10
   maxHealth: 100
+  currentHealth: 0
+--- !u!114 &7320273374029920390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203688576136026204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d38b2db654a58b4bbaa2e7e18314e96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingLocation: {fileID: 4200066911285378335}
+  bulletPrefabs: {fileID: 215418569531538791, guid: 0f560f34485aa3b49b6ae10314b9386c,
+    type: 3}
+  shootingCD: 2.5
 --- !u!1 &3321020508542494176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,7 +1789,7 @@ GameObject:
   - component: {fileID: 3900367985998444459}
   m_Layer: 0
   m_Name: UpperBarrelSpawn
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1781,13 +1802,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4200066911285378335}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071063, y: -0.00083252776, z: -0.00083252776, w: 0.7071064}
-  m_LocalPosition: {x: -0.047, y: 0.938, z: -0.065}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0818229, y: 1.435547, z: 2.501}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7718959377305266039}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -0.135}
+  m_Father: {fileID: 331156606587359997}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4537548672485927431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1804,7 +1825,7 @@ GameObject:
   - component: {fileID: 7878232416503296118}
   m_Layer: 0
   m_Name: UpperBarel
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1821,8 +1842,7 @@ Transform:
   m_LocalPosition: {x: 0.18114424, y: 0.53086203, z: -0.12217937}
   m_LocalScale: {x: 1.1997797, y: 1.1412137, z: 1.775273}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3900367985998444459}
+  m_Children: []
   m_Father: {fileID: 1883584545191608745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6742509590674959512
@@ -2811,7 +2831,7 @@ GameObject:
   - component: {fileID: 799858439060815986}
   m_Layer: 0
   m_Name: ConnectingPart
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4777,7 +4797,7 @@ GameObject:
   - component: {fileID: 2929777876598340150}
   m_Layer: 0
   m_Name: MainBody
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5374,7 +5394,7 @@ GameObject:
   - component: {fileID: 7494844638098655223}
   m_Layer: 0
   m_Name: LowerBarrel
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
