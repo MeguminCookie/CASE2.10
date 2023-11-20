@@ -448,8 +448,8 @@ MonoBehaviour:
   timeBetweenCounting: 0.01
   timeText: {fileID: 191586006}
   killsText: {fileID: 856360554}
-  tempTimer: 78
-  tempKills: 3572
+  tempTimer: 400
+  tempKills: 572
 --- !u!1 &365577920
 GameObject:
   m_ObjectHideFlags: 0
