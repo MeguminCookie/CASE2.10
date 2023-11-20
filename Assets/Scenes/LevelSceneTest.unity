@@ -12832,6 +12832,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeLeftText: {fileID: 711809855}
   timeAddedPrefab: {fileID: 1510942252}
+  timeColorChange30Sec: 1.5
+  timeColorChange15Sec: 0.5
 --- !u!4 &1977649240
 Transform:
   m_ObjectHideFlags: 0

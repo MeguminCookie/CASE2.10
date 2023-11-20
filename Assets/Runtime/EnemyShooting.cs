@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextDissapearScript : MonoBehaviour
+public class EnemyShooting : MonoBehaviour
 {
-
-    [SerializeField] private float upwardsSpeed;
     // Start is called before the first frame update
+    [SerializeField] private GameObject shootingLocation;
+    [SerializeField] private GameObject bulletPrefabs;
     void Start()
     {
         
@@ -15,7 +15,6 @@ public class TextDissapearScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       transform.position = transform.up * upwardsSpeed * Time.deltaTime;
-
+        
     }
 }
