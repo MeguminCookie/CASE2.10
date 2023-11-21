@@ -4,12 +4,12 @@ using UnityEngine.InputSystem;
 public class Player2Controller : MonoBehaviour
 {
     public float rotationSpeed = 5f;
-    public GameObject projectilePrefab;
-    public Transform projectileSpawnPoint;
+    //public GameObject projectilePrefab;
+    //public Transform projectileSpawnPoint;
 
-    public float firingRate = 0.5f; // Adjust this value to set the firing rate in seconds
-    public float projectileForce = 10f; // Adjust this value to set the for
-    private float nextFireTime;
+    //public float firingRate = 0.5f; // Adjust this value to set the firing rate in seconds
+    //public float projectileForce = 10f; // Adjust this value to set the for
+    //private float nextFireTime;
 
     //public BaseWeapon[] weapons;
     //public int currentWeaponIndex = 0;
@@ -47,7 +47,8 @@ public class Player2Controller : MonoBehaviour
             transform.Rotate(0, 80f* Time.deltaTime, 0);
         }
     }
-
+    
+    /*
     void FireProjectile()
     {
         if (projectilePrefab != null && projectileSpawnPoint != null)

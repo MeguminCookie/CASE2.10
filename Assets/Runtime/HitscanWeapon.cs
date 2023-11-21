@@ -7,7 +7,9 @@ public class HitscanWeapon : MonoBehaviour
     [SerializeField] private bool AddBulletSpread = true;
     [SerializeField] private Vector3 BulletSpreadVariance = new Vector3(0.1f, 0.1f, 0.1f);
     [SerializeField] private ParticleSystem ShootingSystem;
-    [SerializeField] private Transform BulletSpawnPoint;
+    //[SerializeField] private Transform BulletSpawnPoint;
+    [SerializeField] private Transform LeftBulletSpawnPoint;
+    [SerializeField] private Transform RightBulletSpawnPoint;
     [SerializeField] private ParticleSystem ImpactParticleSystem;
     [SerializeField] private TrailRenderer BulletTrail;
     [SerializeField] private float ShootDelay = 0.5f;
@@ -15,6 +17,8 @@ public class HitscanWeapon : MonoBehaviour
     [SerializeField] private float BulletSpeed = 100f;
     [SerializeField] private float firingAngle = 45f;
     [SerializeField] private float maxFiringDistance = 100f;
+
+    private string currentBarrel;
 
     private Animator Animator;
     private float LastShootTime;
@@ -26,15 +30,29 @@ public class HitscanWeapon : MonoBehaviour
         Mask = LayerMask.GetMask("Default", "Enemy");
     }
 
+    private void Start()
+    {
+        currentBarrel = "Left";
+    }
+
     private void Update()
     {
         if (Input.GetKey(KeyCode.U))
         {
-            Shoot();
+            if (currentBarrel == "Left")
+            {
+                ShootLeft();
+                currentBarrel = "Right";
+            }
+            else if(currentBarrel == "Right")
+            {
+                ShootRight();
+                currentBarrel = "Left";
+            }
         }
     }
 
-    public void Shoot()
+    public void ShootLeft()
     {
         if (LastShootTime + ShootDelay < Time.time)
         {
@@ -62,7 +80,7 @@ public class HitscanWeapon : MonoBehaviour
                 Debug.Log("Damage roll: 3 damage");
             }
 
-            if (Physics.Raycast(BulletSpawnPoint.position, direction, out RaycastHit hit, float.MaxValue, Mask))
+            if (Physics.Raycast(LeftBulletSpawnPoint.position, direction, out RaycastHit hit, float.MaxValue, Mask))
             {
                 if (hit.collider.CompareTag("Enemy"))
                 {
@@ -79,7 +97,7 @@ public class HitscanWeapon : MonoBehaviour
                     }
                 }
 
-                TrailRenderer trail = Instantiate(BulletTrail, BulletSpawnPoint.position, Quaternion.identity);
+                TrailRenderer trail = Instantiate(BulletTrail, LeftBulletSpawnPoint.position, Quaternion.identity);
 
                 StartCoroutine(SpawnTrail(trail, hit.point, hit.normal, true));
 
@@ -87,9 +105,71 @@ public class HitscanWeapon : MonoBehaviour
             }
             else
             {
-                TrailRenderer trail = Instantiate(BulletTrail, BulletSpawnPoint.position, Quaternion.identity);
+                TrailRenderer trail = Instantiate(BulletTrail, LeftBulletSpawnPoint.position, Quaternion.identity);
 
-                StartCoroutine(SpawnTrail(trail, BulletSpawnPoint.position + direction * maxFiringDistance, Vector3.zero, false));
+                StartCoroutine(SpawnTrail(trail, LeftBulletSpawnPoint.position + direction * maxFiringDistance, Vector3.zero, false));
+
+                LastShootTime = Time.time;
+            }
+        }
+    }
+
+    public void ShootRight()
+    {
+        if (LastShootTime + ShootDelay < Time.time)
+        {
+            Animator.SetBool("IsShooting", true);
+            ShootingSystem.Play();
+
+            Vector3 direction = GetDirectionToNearestEnemy();
+
+            int randomDamage = Random.Range(1, 101);
+
+            int damage;
+            if (randomDamage <= 25)
+            {
+                damage = 1;
+                Debug.Log("Damage roll: 1 damage");
+            }
+            else if (randomDamage <= 75)
+            {
+                damage = 2;
+                Debug.Log("Damage roll: 2 damage");
+            }
+            else
+            {
+                damage = 3;
+                Debug.Log("Damage roll: 3 damage");
+            }
+
+            if (Physics.Raycast(RightBulletSpawnPoint.position, direction, out RaycastHit hit, float.MaxValue, Mask))
+            {
+                if (hit.collider.CompareTag("Enemy"))
+                {
+                    Debug.Log("Enemy hit with hitscan");
+                    EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
+                    if (enemyHealth != null)
+                    {
+                        enemyHealth.TakeDamage(damage);
+                        Debug.Log("Enemy took damage!");
+                    }
+                    else
+                    {
+                        Debug.LogError("EnemyHealth is not null.");
+                    }
+                }
+
+                TrailRenderer trail = Instantiate(BulletTrail, RightBulletSpawnPoint.position, Quaternion.identity);
+
+                StartCoroutine(SpawnTrail(trail, hit.point, hit.normal, true));
+
+                LastShootTime = Time.time;
+            }
+            else
+            {
+                TrailRenderer trail = Instantiate(BulletTrail, RightBulletSpawnPoint.position, Quaternion.identity);
+
+                StartCoroutine(SpawnTrail(trail, RightBulletSpawnPoint.position + direction * maxFiringDistance, Vector3.zero, false));
 
                 LastShootTime = Time.time;
             }
@@ -121,7 +201,7 @@ public class HitscanWeapon : MonoBehaviour
             // Visualize the firing angle
             Debug.DrawLine(transform.position, nearestEnemy.position, Color.green);
 
-            Vector3 direction = (nearestEnemy.position - BulletSpawnPoint.position).normalized;
+            Vector3 direction = (nearestEnemy.position - LeftBulletSpawnPoint.position).normalized; //MAYBE CHANGE
 
             if (AddBulletSpread)
             {
