@@ -10,7 +10,7 @@ public class HitscanWeapon : MonoBehaviour
     //[SerializeField] private Transform BulletSpawnPoint;
     [SerializeField] private Transform LeftBulletSpawnPoint;
     [SerializeField] private Transform RightBulletSpawnPoint;
-    [SerializeField] private ParticleSystem ImpactParticleSystem;
+    [SerializeField] private GameObject ImpactParticleSystem;
     [SerializeField] private TrailRenderer BulletTrail;
     [SerializeField] private float ShootDelay = 0.5f;
     [SerializeField] private LayerMask Mask;
@@ -86,15 +86,15 @@ public class HitscanWeapon : MonoBehaviour
                 {
                     Debug.Log("Enemy hit with hitscan");
                     EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
-                    if (enemyHealth != null)
-                    {
+                    
+                    
                         enemyHealth.TakeDamage(damage);
-                        Debug.Log("Enemy took damage!");
-                    }
-                    else
-                    {
-                        Debug.LogError("EnemyHealth is not null.");
-                    }
+                       Debug.Log("Enemy took damage!");
+                    
+                    
+                    
+                        Debug.Log("EnemyHealth is not null.");
+                    
                 }
 
                 TrailRenderer trail = Instantiate(BulletTrail, LeftBulletSpawnPoint.position, Quaternion.identity);
@@ -148,15 +148,15 @@ public class HitscanWeapon : MonoBehaviour
                 {
                     Debug.Log("Enemy hit with hitscan");
                     EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
-                    if (enemyHealth != null)
-                    {
+                    
+                    
                         enemyHealth.TakeDamage(damage);
                         Debug.Log("Enemy took damage!");
-                    }
-                    else
-                    {
-                        Debug.LogError("EnemyHealth is not null.");
-                    }
+                   
+                   
+                    
+                        Debug.Log("EnemyHealth is not null.");
+                    
                 }
 
                 TrailRenderer trail = Instantiate(BulletTrail, RightBulletSpawnPoint.position, Quaternion.identity);

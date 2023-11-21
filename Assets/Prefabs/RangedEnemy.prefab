@@ -1620,6 +1620,8 @@ GameObject:
   - component: {fileID: 8536902721462446734}
   - component: {fileID: 6312439596628613075}
   - component: {fileID: 7320273374029920390}
+  - component: {fileID: 8193577847989033140}
+  - component: {fileID: 2423616274752255389}
   m_Layer: 0
   m_Name: RangedEnemy
   m_TagString: Enemy
@@ -1729,7 +1731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToAdd: 10
-  maxHealth: 100
+  maxHealth: 5
   currentHealth: 0
 --- !u!114 &7320273374029920390
 MonoBehaviour:
@@ -1747,6 +1749,39 @@ MonoBehaviour:
   bulletPrefabs: {fileID: 215418569531538791, guid: 0f560f34485aa3b49b6ae10314b9386c,
     type: 3}
   shootingCD: 2.5
+--- !u!114 &8193577847989033140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203688576136026204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6bf535122ef1a9498232896c91b3ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2423616274752255389
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203688576136026204}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3321020508542494176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,7 +1793,7 @@ GameObject:
   - component: {fileID: 6496238810964220690}
   m_Layer: 0
   m_Name: LowerBarrelSpawn
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4795,7 +4830,7 @@ GameObject:
   - component: {fileID: 8565764998371150581}
   - component: {fileID: 4762341849590620242}
   - component: {fileID: 2929777876598340150}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MainBody
   m_TagString: Enemy
   m_Icon: {fileID: 0}

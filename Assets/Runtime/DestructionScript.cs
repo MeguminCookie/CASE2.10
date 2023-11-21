@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class DestructionScript : MonoBehaviour
@@ -21,7 +22,7 @@ public class DestructionScript : MonoBehaviour
     {
         if(collision.collider.CompareTag("Player"))
         {
-            Instantiate(destroyedObject,transform.position,Quaternion.identity);
+            Instantiate(destroyedObject,transform.position, quaternion.Euler(0,transform.rotation.y,0));
             Destroy(gameObject);
 
         }

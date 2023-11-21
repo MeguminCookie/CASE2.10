@@ -52,7 +52,7 @@ public class CountdownTimer : MonoBehaviour
         timeLeft -= Time.deltaTime;
 
         var minutes = Mathf.Floor(timeLeft / 60);
-        var seconds = Mathf.Ceil(timeLeft % 60);
+        var seconds = Mathf.Floor(timeLeft % 60);
         //var miliseconds = timeLeft * 10;
         //miliseconds = miliseconds % 10;
         timeText = String.Format("{0:00}:{1:00}", minutes, seconds);
