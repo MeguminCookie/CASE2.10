@@ -19,7 +19,7 @@ public class Gun_Luka : MonoBehaviour
     void Start()
     {
         gunTrigger = GetComponent<BoxCollider>(); 
-        gunTrigger.size = new Vector3(0.07f, verticalRange, range);
+        gunTrigger.size = new Vector3(6f, verticalRange, range);
         gunTrigger.center = new Vector3(0, 0, range * 0.5f);   
     }
 
