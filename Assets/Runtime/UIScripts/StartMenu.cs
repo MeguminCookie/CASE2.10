@@ -8,7 +8,7 @@ public class StartMenu : MonoBehaviour
 {
     [Header("OtherPanels")]
     [SerializeField] private GameObject highscorePanel;
-    [SerializeField] private GameObject credistPanel;
+    [SerializeField] private GameObject creditsPanel;
 
     [Header("Buttons")]
     [SerializeField] private GameObject button1;
@@ -42,16 +42,16 @@ public class StartMenu : MonoBehaviour
             if (isOnHighScore)
             {
                 Debug.Log("Show Highscore");
-                /* highscorePanel.SetActive(true);
-                 * gameObject.SetActive(false);
-                 */
+                highscorePanel.SetActive(true);
+                gameObject.SetActive(false);
+                 
             }
             if (isOnCredits)
             {
                 Debug.Log("Show Credits");
-                /* creditsPanel.SetActive(true);
-                 * gameObject.SetActive(false);
-                 */
+                creditsPanel.SetActive(true);
+                gameObject.SetActive(false);
+                 
             }
         }
 
