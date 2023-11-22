@@ -79,12 +79,13 @@ public class HitscanWeapon : MonoBehaviour
                     EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
 
 
-                    enemyHealth.TakeDamage(damage);
+                    //enemyHealth.TakeDamage(damage);
+                    enemyHealth.Die();
                     Debug.Log("Enemy took damage!");
 
 
 
-                    Debug.Log("EnemyHealth is not null.");
+                    
 
                 }
                 TrailRenderer trail = Instantiate(BulletTrail, LeftBulletSpawnPoint.position, Quaternion.identity);
@@ -131,7 +132,8 @@ public class HitscanWeapon : MonoBehaviour
                     EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
 
 
-                    enemyHealth.TakeDamage(damage);
+                    // enemyHealth.TakeDamage(damage);
+                    enemyHealth.Die();
                     Debug.Log("Enemy took damage!");
 
 

@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-
+    public AudioClip[] soundEffects;
+    private AudioSource audioSource;
     [SerializeField] private float timeToAdd;
     public int maxHealth = 100; // You can set this value in the Unity Editor
 
@@ -18,6 +19,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
         //countDownObject = GameObject.FindGameObjectWithTag("Gamemanager");
         //timer = countDownObject.GetComponent< CountdownTimer >(); 
@@ -44,13 +46,13 @@ public class EnemyHealth : MonoBehaviour
 
     }
 
-    private void Die()
+    public void Die()
     {
         // Handle enemy death (e.g., play death animation, spawn particles, etc.)
+
         timer.TimeAdder(10f);
         Destroy(gameObject); // Destroy the enemy GameObject
-        Debug.Log("Enemy killed!");
-        
+        Debug.Log("Enemy killed!");        
         Debug.Log("Time added");
     }
 }
