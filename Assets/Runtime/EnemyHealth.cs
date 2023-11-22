@@ -46,17 +46,6 @@ public class EnemyHealth : MonoBehaviour
 
     }
 
-    public void Die()
-    {
-        // Handle enemy death (e.g., play death animation, spawn particles, etc.)
-
-        timer.TimeAdder(10f);
-        PlayRandomSound();
-        Destroy(gameObject); // Destroy the enemy GameObject
-        Debug.Log("Enemy killed!");        
-        Debug.Log("Time added");
-    }
-
     void PlayRandomSound()
     {
         if (soundEffects.Length > 0)
@@ -69,4 +58,17 @@ public class EnemyHealth : MonoBehaviour
             Debug.LogError("No sound effects available!");
         }
     }
+
+    public void Die()
+    {
+        // Handle enemy death (e.g., play death animation, spawn particles, etc.)
+
+        timer.TimeAdder(10f);
+        PlayRandomSound();
+        Destroy(gameObject); // Destroy the enemy GameObject
+        Debug.Log("Enemy killed!");        
+        Debug.Log("Time added");
+    }
+
+    
 }
