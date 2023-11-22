@@ -51,11 +51,20 @@ public class CountdownTimer : MonoBehaviour
     {
         timeLeft -= Time.deltaTime;
 
+        if(timeLeft > 0) { 
+        }
         var minutes = Mathf.Floor(timeLeft / 60);
         var seconds = Mathf.Floor(timeLeft % 60);
         //var miliseconds = timeLeft * 10;
         //miliseconds = miliseconds % 10;
-        timeText = String.Format("{0:00}:{1:00}", minutes, seconds);
+        if(timeLeft > 0)
+        {
+            timeText = String.Format("{0:00}:{1:00}", minutes, seconds);
+        }
+        else
+        {
+            timeText = "00:00";
+        }
 
         return timeText;
 
