@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_OultineShader_Enemies
+  m_Name: Shader Graphs_OultineShader_Buildings
   m_Shader: {fileID: -6465566751694194690, guid: ace99a97434c3914c9e6a8583ee6c8b6,
     type: 3}
   m_Parent: {fileID: 0}
@@ -51,7 +51,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _OutlineThickness: 0.15
+    - _OutlineThickness: 0.0015
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
