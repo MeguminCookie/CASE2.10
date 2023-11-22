@@ -73,7 +73,7 @@ public class CountdownTimer : MonoBehaviour
             colorChanged = false;
 
         }
-        else if(timeLeft <= 15)
+        else if(timeLeft <= 15 && timeLeft >0)
         {
 
             timeLeftText.color = Color.red;
