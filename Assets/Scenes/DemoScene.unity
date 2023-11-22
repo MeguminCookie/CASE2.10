@@ -3918,6 +3918,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 148f23c69d26d3c45a197d5442c87cca, type: 3}
+--- !u!1001 &239521495
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3672890444221102887, guid: c306daa6747e051478b18bf05ca3084a,
+        type: 3}
+      propertyPath: m_Name
+      value: vfx-explosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771975210868277815, guid: c306daa6747e051478b18bf05ca3084a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.9397814
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771975210868277815, guid: c306daa6747e051478b18bf05ca3084a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771975210868277815, guid: c306daa6747e051478b18bf05ca3084a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.8431816
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771975210868277815, guid: c306daa6747e051478b18bf05ca3084a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771975210868277815, guid: c306daa6747e051478b18bf05ca3084a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771975210868277815, guid: c306daa6747e051478b18bf05ca3084a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771975210868277815, guid: c306daa6747e051478b18bf05ca3084a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771975210868277815, guid: c306daa6747e051478b18bf05ca3084a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771975210868277815, guid: c306daa6747e051478b18bf05ca3084a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771975210868277815, guid: c306daa6747e051478b18bf05ca3084a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c306daa6747e051478b18bf05ca3084a, type: 3}
 --- !u!4 &240828444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 23693749320699812, guid: f08296a3dabcb5846a7fbc8e1506234c,
@@ -3989,8 +4057,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: TIMER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -17009,6 +17077,7 @@ GameObject:
   - component: {fileID: 997932025}
   - component: {fileID: 997932024}
   - component: {fileID: 997932023}
+  - component: {fileID: 997932027}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -17151,6 +17220,18 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &997932027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997932021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e6da4483c217a4087c2601170b36c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &998244349 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 23693749320699812, guid: f08296a3dabcb5846a7fbc8e1506234c,
@@ -18292,8 +18373,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -35637,3 +35718,4 @@ SceneRoots:
   - {fileID: 255044766}
   - {fileID: 1870715293}
   - {fileID: 1077932541}
+  - {fileID: 239521495}

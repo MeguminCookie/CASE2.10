@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using Unity.VisualScripting;
 
 public class CameraShake : MonoBehaviour
 {
@@ -15,4 +17,13 @@ public class CameraShake : MonoBehaviour
     {
         
     }
+
+    public void OnShake(float duration, float strength)
+    {
+        DOTween.RewindAll();
+        transform.DOShakePosition(duration, strength);
+        transform.DOShakeRotation(duration, strength);
+    }
+
+   
 }
