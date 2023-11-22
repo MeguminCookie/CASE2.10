@@ -10,6 +10,8 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth = 100; // You can set this value in the Unity Editor
 
     public int currentHealth;
+    private CountdownTimer timer;
+    [SerializeField] private GameObject gamemanager;
 
     //private GameObject countDownObject;
     //private CountdownTimer timer;
@@ -19,6 +21,9 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = maxHealth;
         //countDownObject = GameObject.FindGameObjectWithTag("Gamemanager");
         //timer = countDownObject.GetComponent< CountdownTimer >(); 
+        gamemanager = GameObject.FindGameObjectWithTag("GameManager");
+        timer = gamemanager.GetComponent<CountdownTimer>();
+        
     }
 
     public void TakeDamage(int damage)
@@ -42,7 +47,10 @@ public class EnemyHealth : MonoBehaviour
     private void Die()
     {
         // Handle enemy death (e.g., play death animation, spawn particles, etc.)
-        //Destroy(gameObject); // Destroy the enemy GameObject
+        timer.TimeAdder(10f);
+        Destroy(gameObject); // Destroy the enemy GameObject
         Debug.Log("Enemy killed!");
+        
+        Debug.Log("Time added");
     }
 }
