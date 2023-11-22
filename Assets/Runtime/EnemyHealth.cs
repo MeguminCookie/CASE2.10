@@ -51,8 +51,22 @@ public class EnemyHealth : MonoBehaviour
         // Handle enemy death (e.g., play death animation, spawn particles, etc.)
 
         timer.TimeAdder(10f);
+        PlayRandomSound();
         Destroy(gameObject); // Destroy the enemy GameObject
         Debug.Log("Enemy killed!");        
         Debug.Log("Time added");
+    }
+
+    void PlayRandomSound()
+    {
+        if (soundEffects.Length > 0)
+        {
+            int randomIndex = Random.Range(0, soundEffects.Length);
+            audioSource.PlayOneShot(soundEffects[randomIndex]);
+        }
+        else
+        {
+            Debug.LogError("No sound effects available!");
+        }
     }
 }

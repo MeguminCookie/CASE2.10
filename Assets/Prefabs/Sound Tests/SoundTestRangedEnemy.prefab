@@ -1622,7 +1622,6 @@ GameObject:
   - component: {fileID: 7320273374029920390}
   - component: {fileID: 2423616274752255389}
   - component: {fileID: 4531626813472509551}
-  - component: {fileID: 3736738012838602697}
   m_Layer: 0
   m_Name: SoundTestRangedEnemy
   m_TagString: Enemy
@@ -1733,6 +1732,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5986d6c353eb9304a9a9e58353479734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundEffects:
+  - {fileID: 8300000, guid: a5bcaa1f77d03764ea036ac5325d16ae, type: 3}
+  - {fileID: 8300000, guid: 813d6f3866c13fa499860f5b97eb9fb5, type: 3}
   timeToAdd: 10
   maxHealth: 1
   currentHealth: 0
@@ -1785,8 +1787,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0.25
+  m_PlayOnAwake: 0
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1870,21 +1872,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3736738012838602697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1203688576136026204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4377892980544964e8a8f8690a421a05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEffects:
-  - {fileID: 8300000, guid: a5bcaa1f77d03764ea036ac5325d16ae, type: 3}
-  - {fileID: 8300000, guid: 813d6f3866c13fa499860f5b97eb9fb5, type: 3}
 --- !u!1 &3321020508542494176
 GameObject:
   m_ObjectHideFlags: 0
