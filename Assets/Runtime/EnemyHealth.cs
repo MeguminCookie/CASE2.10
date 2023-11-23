@@ -15,6 +15,7 @@ public class EnemyHealth : MonoBehaviour
     public AudioClip clip;
     [SerializeField] private GameObject enemy;
     [SerializeField] private GameObject timeDmgPrefab;
+    [SerializeField] private ScoreManager scoreManager;
     private GameObject rotationText;
     private GameObject countDownObject;
     private float timeAdd;
@@ -69,7 +70,7 @@ public class EnemyHealth : MonoBehaviour
     public void Die()
     {
         // Handle enemy death (e.g., play death animation, spawn particles, etc.)
-
+        scoreManager.UpdateKills();
         timer.TimeAdder(timeAdd);
         //PlayRandomSound();
         
