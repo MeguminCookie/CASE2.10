@@ -34,11 +34,20 @@ public class ScoreCalculator : MonoBehaviour
                 {
                     PlayerPrefs.SetString("NameOne", currentName);
                     PlayerPrefs.SetInt("TimeOne", currentTime);
+
+                    PlayerPrefs.SetString("NameTwo", nameOne);
+                    PlayerPrefs.SetInt("TimeTwo", timeOne);
+
+                    PlayerPrefs.SetString("NameThree", nameTwo);
+                    PlayerPrefs.SetInt("TimeThree", timeTwo);
                 }
                 else
                 {
                     PlayerPrefs.SetString("NameTwo", currentName);
                     PlayerPrefs.SetInt("TimeTwo", currentTime);
+
+                    PlayerPrefs.SetString("NameThree", nameTwo);
+                    PlayerPrefs.SetInt("TimeThree", timeTwo);
                 }
             }
             else
