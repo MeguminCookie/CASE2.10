@@ -19,7 +19,7 @@ public class EnemyHealth : MonoBehaviour
     private GameObject rotationText;
     private GameObject countDownObject;
     private float timeAdd;
-     
+    
     private void Start()
     {
         rotationText = GameObject.FindGameObjectWithTag("TextSpawn");
@@ -29,6 +29,7 @@ public class EnemyHealth : MonoBehaviour
         //timer = countDownObject.GetComponent< CountdownTimer >(); 
         gamemanager = GameObject.FindGameObjectWithTag("GameManager");
         timer = gamemanager.GetComponent<CountdownTimer>();
+        scoreManager = FindAnyObjectByType<ScoreManager>();
     }
     private void Update()
     {

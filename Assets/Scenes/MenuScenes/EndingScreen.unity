@@ -184,7 +184,7 @@ MonoBehaviour:
   areYouSureScreen: {fileID: 250742671}
   yes: {fileID: 2096653310}
   no: {fileID: 635172087}
-  calculator: {fileID: 0}
+  calculator: {fileID: 434357627}
   restartGamePanel: {fileID: 55901902}
 --- !u!1 &55901902
 GameObject:
