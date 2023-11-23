@@ -23,7 +23,7 @@ public class EnterNameMenu : MonoBehaviour
     [SerializeField] private GameObject yes;
     [SerializeField] private GameObject no;
 
-    [SerializeField] private TextMeshProUGUI temptext;
+    [SerializeField] private GameObject restartGamePanel;
 
     //Intitial Switch
     private int currentLetterInitial1;
@@ -81,7 +81,8 @@ public class EnterNameMenu : MonoBehaviour
                 //KeepNames, go to next screen
                 PlayerPrefs.SetString("PlayerNames", $"{initial1Letter} & {initial2Letter}");
 
-                temptext.SetText(PlayerPrefs.GetString("PlayerNames"));
+                restartGamePanel.SetActive(true);
+                gameObject.SetActive(false);
             }
             if (isOnNo)
             {
