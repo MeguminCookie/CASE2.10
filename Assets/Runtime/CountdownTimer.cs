@@ -136,8 +136,8 @@ public class CountdownTimer : MonoBehaviour
         yield return new WaitForSeconds(3.6f);
         outOfTimeText.transform.DOMoveY(-540, 1.2f);
         yield return new WaitForSeconds(1f);
-        // Verander naar de score scene
-        // SceneManager.LoadScene();
+       
+        SceneManager.LoadScene(2);
     }
     
     public bool IsGameOver() 
