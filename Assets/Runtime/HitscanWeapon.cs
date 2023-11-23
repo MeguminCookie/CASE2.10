@@ -34,7 +34,7 @@ public class HitscanWeapon : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.L))
+        if (Input.GetKey(KeyCode.F))
         {
             if (currentBarrel == "Left")
             {
