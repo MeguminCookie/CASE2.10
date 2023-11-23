@@ -36,5 +36,6 @@ public class EnemyShooting : MonoBehaviour
         yield return new WaitForSeconds(shootingCD);
         canShoot = true;
         AudioSource.PlayClipAtPoint(clip, shootingLocation.transform.position);
+        Debug.Log("Audio clip instantiated");
     }
 }

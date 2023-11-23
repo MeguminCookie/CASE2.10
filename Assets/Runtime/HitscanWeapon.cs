@@ -55,7 +55,7 @@ public class HitscanWeapon : MonoBehaviour
             AudioSource.PlayClipAtPoint(clip, LeftBulletSpawnPoint.transform.position);
             Animator.SetBool("IsShooting", true);
             ShootingSystem.Play();
-            Vector3 direction = GetDirectionToNearestEnemy();
+            Vector3 direction = GetDirectionToNearestEnemyLeft();
             int randomDamage = Random.Range(1, 101);
             int damage;
             if (randomDamage <= 25)
@@ -110,7 +110,7 @@ public class HitscanWeapon : MonoBehaviour
             AudioSource.PlayClipAtPoint(clip, RightBulletSpawnPoint.transform.position);
             Animator.SetBool("IsShooting", true);
             ShootingSystem.Play();
-            Vector3 direction = GetDirectionToNearestEnemy();
+            Vector3 direction = GetDirectionToNearestEnemyRight();
             int randomDamage = Random.Range(1, 101);
             int damage;
             if (randomDamage <= 25)
@@ -158,7 +158,7 @@ public class HitscanWeapon : MonoBehaviour
             }
         }
     }
-    private Vector3 GetDirectionToNearestEnemy()
+    private Vector3 GetDirectionToNearestEnemyLeft()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, maxFiringDistance, Mask);
         Transform nearestEnemy = null;
@@ -180,6 +180,42 @@ public class HitscanWeapon : MonoBehaviour
             // Visualize the firing angle
             Debug.DrawLine(transform.position, nearestEnemy.position, Color.green);
             Vector3 direction = (nearestEnemy.position - LeftBulletSpawnPoint.position).normalized; //MAYBE CHANGE
+            if (AddBulletSpread)
+            {
+                direction += new Vector3(
+                    Random.Range(-BulletSpreadVariance.x, BulletSpreadVariance.x),
+                    Random.Range(-BulletSpreadVariance.y, BulletSpreadVariance.y),
+                    Random.Range(-BulletSpreadVariance.z, BulletSpreadVariance.z)
+                );
+                direction.Normalize();
+            }
+            return direction;
+        }
+        return transform.forward;
+    }
+
+    private Vector3 GetDirectionToNearestEnemyRight()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, maxFiringDistance, Mask);
+        Transform nearestEnemy = null;
+        float nearestDistance = float.MaxValue;
+        foreach (Collider collider in hitColliders)
+        {
+            if (collider.CompareTag("Enemy"))
+            {
+                float distance = Vector3.Distance(transform.position, collider.transform.position);
+                if (IsWithinFiringAngle(collider.transform.position) && distance < nearestDistance)
+                {
+                    nearestDistance = distance;
+                    nearestEnemy = collider.transform;
+                }
+            }
+        }
+        if (nearestEnemy != null)
+        {
+            // Visualize the firing angle
+            Debug.DrawLine(transform.position, nearestEnemy.position, Color.green);
+            Vector3 direction = (nearestEnemy.position - RightBulletSpawnPoint.position).normalized; //MAYBE CHANGE
             if (AddBulletSpread)
             {
                 direction += new Vector3(

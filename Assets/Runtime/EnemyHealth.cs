@@ -65,8 +65,9 @@ public class EnemyHealth : MonoBehaviour
 
         timer.TimeAdder(10f);
         //PlayRandomSound();
-        Debug.Log("Sound effect played");
+        
         AudioSource.PlayClipAtPoint(clip, enemy.transform.position);
+        Debug.Log("Sound effect instantiated");
         Destroy(gameObject); // Destroy the enemy GameObject
         Debug.Log("Enemy killed!");        
         Debug.Log("Time added");
