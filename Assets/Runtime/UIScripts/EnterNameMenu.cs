@@ -61,7 +61,7 @@ public class EnterNameMenu : MonoBehaviour
             initial2Text.text = initial2Letter;
         }
 
-        if (Keyboard.current.enterKey.wasPressedThisFrame && !areYouSure)
+        if (Keyboard.current.fKey.wasPressedThisFrame && !areYouSure)
         {
             areYouSure = true;
             isOnYes = true;
@@ -74,7 +74,7 @@ public class EnterNameMenu : MonoBehaviour
             no.SetActive(false);
         }
 
-        if (Keyboard.current.enterKey.wasPressedThisFrame && areYouSure && !wait)
+        if (Keyboard.current.fKey.wasPressedThisFrame && areYouSure && !wait)
         {
             if (isOnYes)
             {

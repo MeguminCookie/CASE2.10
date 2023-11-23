@@ -32,7 +32,7 @@ public class StartMenu : MonoBehaviour
 
     void Update()
     {
-        if (Keyboard.current.lKey.wasPressedThisFrame)
+        if (Keyboard.current.fKey.wasPressedThisFrame)
         {
             if(isOnStart)
             {

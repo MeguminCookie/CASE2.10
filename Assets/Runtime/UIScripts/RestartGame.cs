@@ -31,7 +31,7 @@ public class RestartGame : MonoBehaviour
                 StartCoroutine(GoToYes());
         }
 
-        if (Keyboard.current.enterKey.wasPressedThisFrame)
+        if (Keyboard.current.fKey.wasPressedThisFrame)
         {
             if (isOnYes)
             {
