@@ -15,7 +15,7 @@ public class RestartGame : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current.downArrowKey.wasPressedThisFrame)
+        if (Keyboard.current.sKey.wasPressedThisFrame)
         {
             if (isOnYes)
                 StartCoroutine(GoToNo());
@@ -23,7 +23,7 @@ public class RestartGame : MonoBehaviour
                 StartCoroutine(GoToYes());
         }
 
-        if (Keyboard.current.upArrowKey.wasPressedThisFrame)
+        if (Keyboard.current.wKey.wasPressedThisFrame)
         {
             if (isOnYes)
                 StartCoroutine(GoToNo());

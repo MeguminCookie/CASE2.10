@@ -91,7 +91,7 @@ public class EnterNameMenu : MonoBehaviour
             }
         }
 
-        if (Keyboard.current.rightArrowKey.wasPressedThisFrame && areYouSure)
+        if (Keyboard.current.dKey.wasPressedThisFrame && areYouSure)
         {
             if (isOnYes)
                 StartCoroutine(GoToNo());
@@ -99,7 +99,7 @@ public class EnterNameMenu : MonoBehaviour
                 StartCoroutine(GoToYes());
         }
 
-        if (Keyboard.current.leftArrowKey.wasPressedThisFrame && areYouSure)
+        if (Keyboard.current.aKey.wasPressedThisFrame && areYouSure)
         {
             if (isOnYes)
                 StartCoroutine(GoToNo());
@@ -159,7 +159,7 @@ public class EnterNameMenu : MonoBehaviour
     }
     private void SwitchingButtons()
     {
-        if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
+        if (Keyboard.current.dKey.wasPressedThisFrame)
         {
             if (isInitial1)
             {
@@ -172,7 +172,7 @@ public class EnterNameMenu : MonoBehaviour
                 isContinue = true;
             }
         }
-        else if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
+        else if (Keyboard.current.aKey.wasPressedThisFrame)
         {
             if (isContinue)
             {
@@ -189,7 +189,7 @@ public class EnterNameMenu : MonoBehaviour
 
     private void ChangeLettersInitials1()
     {
-        if (isInitial1 && Keyboard.current.downArrowKey.wasPressedThisFrame)
+        if (isInitial1 && Keyboard.current.sKey.wasPressedThisFrame)
         {
             if (currentLetterInitial1 < 26)
             {
@@ -201,7 +201,7 @@ public class EnterNameMenu : MonoBehaviour
             }
 
         }
-        else if (isInitial1 && Keyboard.current.upArrowKey.wasPressedThisFrame)
+        else if (isInitial1 && Keyboard.current.wKey.wasPressedThisFrame)
         {
             if (currentLetterInitial1 > 1)
             {
@@ -306,7 +306,7 @@ public class EnterNameMenu : MonoBehaviour
     }
     private void ChangeLettersInitials2()
     {
-        if (isInitial2 && Keyboard.current.downArrowKey.wasPressedThisFrame)
+        if (isInitial2 && Keyboard.current.sKey.wasPressedThisFrame)
         {
             if (currentLetterInitial2 < 26)
             {
@@ -318,7 +318,7 @@ public class EnterNameMenu : MonoBehaviour
             }
 
         }
-        else if (isInitial2 && Keyboard.current.upArrowKey.wasPressedThisFrame)
+        else if (isInitial2 && Keyboard.current.wKey.wasPressedThisFrame)
         {
             if (currentLetterInitial2 > 1)
             {

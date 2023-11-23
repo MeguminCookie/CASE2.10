@@ -26,7 +26,7 @@ public class HighScoreMenu : MonoBehaviour
 
     void Update()
     {
-        if (Keyboard.current.lKey.wasPressedThisFrame)
+        if (Keyboard.current.fKey.wasPressedThisFrame)
         {
             if (isOnBack)
             {
@@ -41,7 +41,7 @@ public class HighScoreMenu : MonoBehaviour
             }
         }
 
-        if (Keyboard.current.leftArrowKey.wasReleasedThisFrame)
+        if (Keyboard.current.aKey.wasReleasedThisFrame)
         {
             if (isOnBack)
                 StartCoroutine(SetToHighscore());
@@ -49,7 +49,7 @@ public class HighScoreMenu : MonoBehaviour
                 StartCoroutine(SetToBack());
         }
 
-        if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
+        if (Keyboard.current.dKey.wasPressedThisFrame)
         {
             if (isOnBack)
                 StartCoroutine(SetToHighscore());

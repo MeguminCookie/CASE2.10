@@ -55,7 +55,7 @@ public class StartMenu : MonoBehaviour
             }
         }
 
-        if (Keyboard.current.downArrowKey.wasPressedThisFrame)
+        if (Keyboard.current.sKey.wasPressedThisFrame)
         {
             if (isOnStart)
                 StartCoroutine(SetToHighscore());
@@ -65,7 +65,7 @@ public class StartMenu : MonoBehaviour
                 StartCoroutine(SetToStart());
         }
 
-        if (Keyboard.current.upArrowKey.wasPressedThisFrame)
+        if (Keyboard.current.wKey.wasPressedThisFrame)
         {
             if (isOnStart)
                 StartCoroutine(SetToCedits());
