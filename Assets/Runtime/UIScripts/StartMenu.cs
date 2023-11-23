@@ -37,7 +37,7 @@ public class StartMenu : MonoBehaviour
             if(isOnStart)
             {
                 Debug.Log("Start Game");
-                //SceneManager.LoadScene(1);
+                SceneManager.LoadScene(1);
             }
             if (isOnHighScore)
             {

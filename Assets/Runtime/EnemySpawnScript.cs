@@ -8,17 +8,22 @@ public class EnemySpawnScript : MonoBehaviour
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private GameObject enemyPrefab;
     private int randomNumber;
-    [SerializeField] private int spawnTime;
+    private GameObject gamemanager;
+    private CountdownTimer timer;
+    [SerializeField] private float spawnTime;
     private bool hasSpawned;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        gamemanager = GameObject.FindGameObjectWithTag("GameManager");
+        timer = gamemanager.GetComponent<CountdownTimer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        spawnTime = timer.GetSpawnTime();
         if(hasSpawned)
         { 
         }

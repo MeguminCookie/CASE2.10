@@ -8,6 +8,7 @@ public class GameOverMenu : MonoBehaviour
     [SerializeField] private float timeBetweenCounting = 0.01f;
     [SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private TextMeshProUGUI killsText;
+    [SerializeField] private GameObject showHighScore;
 
     [SerializeField] private int tempTimer;
     [SerializeField] private int tempKills;
@@ -27,7 +28,8 @@ public class GameOverMenu : MonoBehaviour
         totalTime = tempTimer;
         totalEnemiesKilled = tempKills;
 
-        StartCoroutine(CountUpTimer());
+        StartCoroutine(CountUpTimer()); 
+        StartCoroutine(CountUpKills());
     }
 
     private void Update()
@@ -92,8 +94,6 @@ public class GameOverMenu : MonoBehaviour
 
             yield return new WaitForSeconds(timeBetweenCounting);
         }
-        yield return new WaitForSeconds(0.3f);
-        StartCoroutine(CountUpKills());
     }
 
     private IEnumerator CountUpKills()
@@ -103,5 +103,9 @@ public class GameOverMenu : MonoBehaviour
             enemyCount++;
             yield return new WaitForSeconds(timeBetweenCounting);
         }
+
+        yield return new WaitForSeconds(12f);
+        showHighScore.SetActive(true);
+        gameObject.SetActive(false);
     }
 }
