@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -7,6 +8,7 @@ using UnityEngine.InputSystem;
 
 public class EnterNameMenu : MonoBehaviour
 {
+    [Header("Initial Switch")]
     [SerializeField] private bool isInitial1;
     [SerializeField] private bool isInitial2;
     [SerializeField] private bool isContinue;
@@ -15,12 +17,25 @@ public class EnterNameMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI continueText;
     [SerializeField] private GameObject borderInitial1;
     [SerializeField] private GameObject borderInitial2;
+
+    [Header("Keeping name")]
+    [SerializeField] private GameObject areYouSureScreen;
+    [SerializeField] private GameObject yes;
+    [SerializeField] private GameObject no;
+
+    [SerializeField] private TextMeshProUGUI temptext;
+
+    //Intitial Switch
     private int currentLetterInitial1;
     private int currentLetterInitial2;
     private string initial1Letter;
     private string initial2Letter;
 
-
+    //KeepingName
+    private bool areYouSure;
+    private bool isOnYes;
+    private bool isOnNo;
+    private bool wait;
 
     // Start is called before the first frame update
     void Start()
@@ -36,14 +51,90 @@ public class EnterNameMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SwitchingButtons();
-        IndicateButton();
-        ChangeLettersInitials1();
-        ChangeLettersInitials2();
-        initial1Text.text = initial1Letter;
-        initial2Text.text = initial2Letter;
+        if (!areYouSure)
+        {
+            SwitchingButtons();
+            IndicateButton();
+            ChangeLettersInitials1();
+            ChangeLettersInitials2();
+            initial1Text.text = initial1Letter;
+            initial2Text.text = initial2Letter;
+        }
+
+        if (Keyboard.current.enterKey.wasPressedThisFrame && !areYouSure)
+        {
+            areYouSure = true;
+            isOnYes = true;
+            isOnNo = false;
+            wait = true;
+            StartCoroutine(Unwait());
+
+            areYouSureScreen.SetActive(true);
+            yes.SetActive(true);
+            no.SetActive(false);
+        }
+
+        if (Keyboard.current.enterKey.wasPressedThisFrame && areYouSure && !wait)
+        {
+            if (isOnYes)
+            {
+                //KeepNames, go to next screen
+                PlayerPrefs.SetString("PlayerNames", $"{initial1Letter} & {initial2Letter}");
+
+                temptext.SetText(PlayerPrefs.GetString("PlayerNames"));
+            }
+            if (isOnNo)
+            {
+                areYouSure = false;
+                areYouSureScreen.SetActive(false);
+            }
+        }
+
+        if (Keyboard.current.rightArrowKey.wasPressedThisFrame && areYouSure)
+        {
+            if (isOnYes)
+                StartCoroutine(GoToNo());
+            if (isOnNo)
+                StartCoroutine(GoToYes());
+        }
+
+        if (Keyboard.current.leftArrowKey.wasPressedThisFrame && areYouSure)
+        {
+            if (isOnYes)
+                StartCoroutine(GoToNo());
+            if (isOnNo)
+                StartCoroutine(GoToYes());
+        }
     }
 
+    private IEnumerator Unwait()
+    {
+        yield return new WaitForEndOfFrame();
+
+        wait = false;
+    }
+
+    private IEnumerator GoToYes()
+    {
+        yes.SetActive(true);
+        no.SetActive(false);
+
+        yield return new WaitForEndOfFrame();
+
+        isOnYes = true;
+        isOnNo = false;
+    }
+
+    private IEnumerator GoToNo()
+    {
+        yes.SetActive(false);
+        no.SetActive(true);
+
+        yield return new WaitForEndOfFrame();
+
+        isOnYes = false;
+        isOnNo = true;
+    }
 
     private void IndicateButton()
     {
