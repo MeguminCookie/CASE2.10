@@ -7,11 +7,15 @@ public class DestructableBuildingPieces : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private GameObject dustParticlePrefab;
     private GameObject mainCamera;
+    private GameObject gamemanager;
+    private CountdownTimer countdownTimer;
     private CameraShake cameraShake;
 
     void Start()
     {
+        gamemanager = GameObject.FindGameObjectWithTag("GameManager");
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        countdownTimer = gamemanager.GetComponent<CountdownTimer>();
         cameraShake = mainCamera.GetComponent<CameraShake>();
         
     }
@@ -29,7 +33,11 @@ public class DestructableBuildingPieces : MonoBehaviour
         }
         else
         {
-            cameraShake.OnShake(0.1f , 0.2f);
+            if(countdownTimer.IsGameOver() == false)
+            {
+                cameraShake.OnShake(0.1f, 0.2f);
+            }
+            
             Instantiate(dustParticlePrefab, transform.position, transform.rotation);
             Destroy(gameObject);
         }

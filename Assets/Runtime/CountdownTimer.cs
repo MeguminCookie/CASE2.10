@@ -14,6 +14,7 @@ public class CountdownTimer : MonoBehaviour
     // Start is called before the first frame update
     private float timeLeft;
     private string timeText;
+    private float totalTime;
     [SerializeField] private TextMeshProUGUI timeLeftText;
     [SerializeField] private TextMeshProUGUI timeAddedPrefab;
     [SerializeField] private float timeColorChange30Sec;
@@ -21,9 +22,14 @@ public class CountdownTimer : MonoBehaviour
     [SerializeField] private Image blackBackground;
     [SerializeField] private GameObject outOfTimeText;
     [SerializeField] private Transform locationForText;
+    
+    private Enemy enemyScript;
     private bool isGameOver;
     private float timeAdded;
     private bool colorChanged;
+    private float currentEnemyTimeDamage;
+    private float currentAddTimeDamage;
+    private float currentSpawnTime;
     void Start()
     {
         colorChanged = false;
@@ -46,10 +52,14 @@ public class CountdownTimer : MonoBehaviour
             StartCoroutine(TimerColorChange(timeColorChange30Sec,timeColorChange15Sec));
         }
 
-        if(timeLeft <= 0 && isGameOver!)
+        if(timeLeft < 0 && isGameOver == false)
         {
+            
             StartCoroutine(GameOver());
         }
+
+        ChangeDifficulty();
+        totalTime += Time.deltaTime;
     }
 
     public void TimeAdder(float timetToAdd)
@@ -63,6 +73,7 @@ public class CountdownTimer : MonoBehaviour
 
     private string TimerChange()
     {
+        
         timeLeft -= Time.deltaTime;
 
         if(timeLeft > 0) { 
@@ -129,6 +140,58 @@ public class CountdownTimer : MonoBehaviour
         // SceneManager.LoadScene();
     }
     
-    
+    public bool IsGameOver() 
+    {     
+        return isGameOver;
+    }
+
+    public float GetTimeDamage()
+    {
+        return currentEnemyTimeDamage;
+    }
+    public float GetTimeAdding()
+    {
+        return currentAddTimeDamage;
+    }
+    public float GetSpawnTime()
+    {
+        return currentSpawnTime;
+    }
+    private void ChangeDifficulty()
+    {
+        if(totalTime >= 0 && totalTime < 30)
+        {
+            currentSpawnTime = 2.5f;
+            currentAddTimeDamage = 10;
+            currentEnemyTimeDamage = -5f;
+        }
+        else if(totalTime >= 30 && totalTime < 60)
+        {
+            currentSpawnTime = 2;
+            currentAddTimeDamage = 7.5f;
+            currentEnemyTimeDamage = -7.5f;
+        }
+        else if(totalTime >= 60 &&  totalTime < 90)
+        {
+            currentSpawnTime = 1.5f;
+            currentAddTimeDamage = 5f;
+;            currentEnemyTimeDamage = -10f;
+        }
+        else if(totalTime >= 90 && totalTime < 120)
+        {
+            currentSpawnTime = 1.5f;
+            currentAddTimeDamage = 5f;
+            currentEnemyTimeDamage = -12.5f;
+                
+        }
+        else if(totalTime >= 120 && totalTime < 150)
+        {
+            currentSpawnTime = 1;
+            currentAddTimeDamage = 5f;
+            currentEnemyTimeDamage = -12.5f;
+        }
+        
+    }
+
 }
 

@@ -14,9 +14,9 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private GameObject gamemanager;
     public AudioClip clip;
     [SerializeField] private GameObject enemy;
-    //private GameObject countDownObject;
-    //private CountdownTimer timer;
-
+    private GameObject countDownObject;
+    private float timeAdd;
+     
     private void Start()
     {
         //audioSource = GetComponent<AudioSource>();
@@ -26,6 +26,10 @@ public class EnemyHealth : MonoBehaviour
         gamemanager = GameObject.FindGameObjectWithTag("GameManager");
         timer = gamemanager.GetComponent<CountdownTimer>();
         
+    }
+    private void Update()
+    {
+        timeAdd = timer.GetTimeAdding();
     }
 
     public void TakeDamage(int damage)
@@ -63,7 +67,7 @@ public class EnemyHealth : MonoBehaviour
     {
         // Handle enemy death (e.g., play death animation, spawn particles, etc.)
 
-        timer.TimeAdder(10f);
+        timer.TimeAdder(timeAdd);
         //PlayRandomSound();
         
         AudioSource.PlayClipAtPoint(clip, enemy.transform.position);

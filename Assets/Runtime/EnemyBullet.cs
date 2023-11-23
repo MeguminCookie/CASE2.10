@@ -22,6 +22,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void Update()
     {
+        timeDamage = timer.GetTimeDamage();
         rb.MovePosition(transform.position - transform.forward * Time.deltaTime * bulletSpeed);
 
     }
