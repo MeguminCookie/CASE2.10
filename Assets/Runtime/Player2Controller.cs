@@ -38,11 +38,11 @@ public class Player2Controller : MonoBehaviour
 
     void RotateUpperBody()
     {
-       if(Keyboard.current.aKey.isPressed)
+       if(Keyboard.current.leftArrowKey.isPressed)
         {
             transform.Rotate(0, -80f* Time.deltaTime, 0);
         }
-       else if(Keyboard.current.dKey.isPressed)
+       else if(Keyboard.current.rightArrowKey.isPressed)
         {
             transform.Rotate(0, 80f* Time.deltaTime, 0);
         }

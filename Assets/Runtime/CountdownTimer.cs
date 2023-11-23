@@ -65,7 +65,7 @@ public class CountdownTimer : MonoBehaviour
     public void TimeAdder(float timetToAdd)
     {
         timeAddedPrefab.SetText("+" + timetToAdd + "SEC");
-        Instantiate(timeAddedPrefab);
+        
         timeLeft += timetToAdd;
     }
 
@@ -194,7 +194,7 @@ public class CountdownTimer : MonoBehaviour
         {
             currentSpawnTime = 0.5f;
             currentAddTimeDamage = 2.5f;
-            currentEnemyTimeDamage = 15;
+            currentEnemyTimeDamage = -15;
         }
         
     }

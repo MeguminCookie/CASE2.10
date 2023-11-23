@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7085076978946901051}
   - component: {fileID: -1419463722146597272}
   - component: {fileID: 2150316180466826031}
+  - component: {fileID: 2227417990673703387}
   m_Layer: 0
   m_Name: EnemyBulletHeavy
   m_TagString: Untagged
@@ -150,3 +151,15 @@ MonoBehaviour:
   bulletSpeed: -80
   explosionEffectPrefab: {fileID: 3672890444221102887, guid: c306daa6747e051478b18bf05ca3084a,
     type: 3}
+--- !u!114 &2227417990673703387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215418569531538791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4789f8190d53eb748aeb5331ec31764f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
