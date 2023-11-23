@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,6 +6,8 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CountdownTimer : MonoBehaviour
 {
@@ -15,12 +18,18 @@ public class CountdownTimer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timeAddedPrefab;
     [SerializeField] private float timeColorChange30Sec;
     [SerializeField] private float timeColorChange15Sec;
+    [SerializeField] private Image blackBackground;
+    [SerializeField] private GameObject outOfTimeText;
+    [SerializeField] private Transform locationForText;
+    private bool isGameOver;
     private float timeAdded;
     private bool colorChanged;
     void Start()
     {
         colorChanged = false;
+        isGameOver = false;
         timeLeft = 60;
+        
     }
 
     // Update is called once per frame
@@ -36,12 +45,17 @@ public class CountdownTimer : MonoBehaviour
         {
             StartCoroutine(TimerColorChange(timeColorChange30Sec,timeColorChange15Sec));
         }
+
+        if(timeLeft <= 0 && isGameOver!)
+        {
+            StartCoroutine(GameOver());
+        }
     }
 
     public void TimeAdder(float timetToAdd)
     {
         timeAddedPrefab.SetText("+" + timetToAdd + "SEC");
-        //Instantiate(timeAddedPrefab);
+        Instantiate(timeAddedPrefab);
         timeLeft += timetToAdd;
     }
 
@@ -93,7 +107,28 @@ public class CountdownTimer : MonoBehaviour
             colorChanged = false;
 
         }
+        else
+        {
+            timeLeftText.color = Color.red;
+            colorChanged = true;
+            yield return new WaitForEndOfFrame();
+        }
        
     }
+
+    private IEnumerator GameOver()
+    {
+        isGameOver = true;
+        blackBackground.DOFade(1, 2.5f);
+        yield return new WaitForSeconds(2.5f);
+        outOfTimeText.transform.DOMoveY(540 , 1.2f);
+        yield return new WaitForSeconds(3.6f);
+        outOfTimeText.transform.DOMoveY(-540, 1.2f);
+        yield return new WaitForSeconds(1f);
+        // Verander naar de score scene
+        // SceneManager.LoadScene();
+    }
+    
+    
 }
 
