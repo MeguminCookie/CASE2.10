@@ -10,10 +10,6 @@ public class HighscoreWritingScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreTwo;
     [SerializeField] private TextMeshProUGUI scoreThree;
 
-    //Temporary variables
-    [SerializeField] private string tempNameOne, tempNameTwo, tempNameThree;
-    [SerializeField] private float tempScoreOne, tempScoreTwo, tempScoreThree;
-
     //Names
     private string nameOne;
     private string nameTwo;
@@ -36,16 +32,6 @@ public class HighscoreWritingScript : MonoBehaviour
 
         nameThree = PlayerPrefs.GetString("NameThree");
         timeThree = PlayerPrefs.GetInt("TimeThree");
-
-        //TemporaryScore
-        nameOne = tempNameOne;
-        timeOne = tempScoreOne;
-
-        nameTwo = tempNameTwo;
-        timeTwo = tempScoreTwo;
-
-        nameThree = tempNameThree;
-        timeThree = tempScoreThree;
 
         //Putting them on the screen
         SetHighscore(scoreOne, timeOne, nameOne);

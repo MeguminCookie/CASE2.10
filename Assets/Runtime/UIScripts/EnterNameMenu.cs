@@ -22,6 +22,7 @@ public class EnterNameMenu : MonoBehaviour
     [SerializeField] private GameObject areYouSureScreen;
     [SerializeField] private GameObject yes;
     [SerializeField] private GameObject no;
+    [SerializeField] private ScoreCalculator calculator;
 
     [SerializeField] private GameObject restartGamePanel;
 
@@ -79,7 +80,9 @@ public class EnterNameMenu : MonoBehaviour
             if (isOnYes)
             {
                 //KeepNames, go to next screen
-                PlayerPrefs.SetString("PlayerNames", $"{initial1Letter} & {initial2Letter}");
+                PlayerPrefs.SetString("PlayerNames", $"{initial1Letter}&{initial2Letter}");
+
+                calculator.IsScoreHigher(PlayerPrefs.GetString("PlayerNames"), PlayerPrefs.GetInt("Total Time"));
 
                 restartGamePanel.SetActive(true);
                 gameObject.SetActive(false);

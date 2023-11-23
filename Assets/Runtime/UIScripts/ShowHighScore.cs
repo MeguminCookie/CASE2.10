@@ -16,10 +16,6 @@ public class ShowHighScore : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreThree;
     [SerializeField] private TextMeshProUGUI scoreCurrent;
 
-    //Temporary variables
-    [SerializeField] private string tempNameOne, tempNameTwo, tempNameThree;
-    [SerializeField] private float tempScoreOne, tempScoreTwo, tempScoreThree;
-
     //Names
     private string nameOne;
     private string nameTwo;
@@ -45,18 +41,6 @@ public class ShowHighScore : MonoBehaviour
 
         currentName = "You";
         currentTime = PlayerPrefs.GetInt("Total Time");
-
-        //TemporaryScore
-        nameOne = tempNameOne;
-        timeOne = tempScoreOne;
-
-        nameTwo = tempNameTwo;
-        timeTwo = tempScoreTwo;
-
-        nameThree = tempNameThree;
-        timeThree = tempScoreThree;
-
-        currentTime = tempScoreThree + 89f;
 
         //SetScores
         SetHighscore(scoreOne, timeOne, nameOne);
