@@ -5,7 +5,8 @@ using UnityEngine;
 public class HoverSoundController : MonoBehaviour
 {
     public AudioSource hoverSound;
-    public float baseVolume = 0.2f; // Adjust this minimum volume as needed
+    public float baseVolume = 0.2f; // Minimum volume
+    public float maxVolume = 0.6f;  // Maximum volume
     public float accelerationThreshold = 0.1f;
     public float volumeIncreaseFactor = 0.2f;
 
@@ -41,12 +42,14 @@ public class HoverSoundController : MonoBehaviour
         // Adjust volume based on movement and other events
         if (isMoving || isDecelerating)
         {
-            hoverSound.volume = Mathf.Clamp01(hoverSound.volume + volumeIncreaseFactor * Time.deltaTime);
+            float newVolume = hoverSound.volume + volumeIncreaseFactor * Time.deltaTime;
+            hoverSound.volume = Mathf.Clamp(newVolume, baseVolume, maxVolume);
         }
         else
         {
             // Ensure that the volume doesn't drop below the minimum value
-            hoverSound.volume = Mathf.Max(baseVolume, hoverSound.volume - volumeIncreaseFactor * Time.deltaTime);
+            float newVolume = hoverSound.volume - volumeIncreaseFactor * Time.deltaTime;
+            hoverSound.volume = Mathf.Clamp(newVolume, baseVolume, maxVolume);
         }
     }
 
