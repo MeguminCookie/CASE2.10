@@ -190,6 +190,12 @@ public class CountdownTimer : MonoBehaviour
             currentAddTimeDamage = 5f;
             currentEnemyTimeDamage = -12.5f;
         }
+        else if(totalTime >= 150 && totalTime < 200)
+        {
+            currentSpawnTime = 0.5f;
+            currentAddTimeDamage = 2.5f;
+            currentEnemyTimeDamage = 15;
+        }
         
     }
 
