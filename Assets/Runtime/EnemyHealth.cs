@@ -29,7 +29,6 @@ public class EnemyHealth : MonoBehaviour
         //timer = countDownObject.GetComponent< CountdownTimer >(); 
         gamemanager = GameObject.FindGameObjectWithTag("GameManager");
         timer = gamemanager.GetComponent<CountdownTimer>();
-        
     }
     private void Update()
     {

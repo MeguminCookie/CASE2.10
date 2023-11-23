@@ -11,13 +11,13 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
+        countdownTimer = FindObjectOfType<CountdownTimer>();
         gameActive = true;
-
     }
 
     void Update()
     {
-        while (countdownTimer.IsGameOver() == false)
+        if (countdownTimer.IsGameOver() == false)
         {
             timeInSeconds = Mathf.FloorToInt(Time.time);
             SaveScore();
