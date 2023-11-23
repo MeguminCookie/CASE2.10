@@ -1,10 +1,10 @@
-using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
-public class TimeAddSTextScript : MonoBehaviour
+public class TimeRemoveTextScript : MonoBehaviour
 {
     // Start is called before the first frame update
     private GameObject gamemanager;
@@ -15,21 +15,21 @@ public class TimeAddSTextScript : MonoBehaviour
     {
         gamemanager = GameObject.FindGameObjectWithTag("GameManager");
         timer = gamemanager.GetComponent<CountdownTimer>();
-        timeText.SetText(timer.GetTimeDamage() + "s");
+        timeText.SetText("+" + timer.GetTimeAdding() + "s");
         StartCoroutine(Move());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
     private IEnumerator Move()
     {
         timeText.transform.DOMoveY(timeText.transform.position.y + 1, 0.8f);
-        timeText.DOFade(1, 0.8f); 
+        timeText.DOFade(1, 0.8f);
         yield return new WaitForSeconds(0.8f);
         Destroy(gameObject);
     }

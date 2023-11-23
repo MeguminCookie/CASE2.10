@@ -14,11 +14,14 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private GameObject gamemanager;
     public AudioClip clip;
     [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject timeDmgPrefab;
+    private GameObject rotationText;
     private GameObject countDownObject;
     private float timeAdd;
      
     private void Start()
     {
+        rotationText = GameObject.FindGameObjectWithTag("TextSpawn");
         //audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
         //countDownObject = GameObject.FindGameObjectWithTag("Gamemanager");
@@ -72,6 +75,7 @@ public class EnemyHealth : MonoBehaviour
         
         AudioSource.PlayClipAtPoint(clip, enemy.transform.position);
         Debug.Log("Sound effect instantiated");
+        Instantiate(timeDmgPrefab, transform.position,rotationText.transform.rotation);
         Destroy(gameObject); // Destroy the enemy GameObject
         Debug.Log("Enemy killed!");        
         Debug.Log("Time added");

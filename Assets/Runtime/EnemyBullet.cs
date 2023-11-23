@@ -9,6 +9,8 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField] private float timeDamage;
     [SerializeField] private float bulletSpeed;
     [SerializeField] private GameObject explosionEffectPrefab;
+    [SerializeField] private GameObject textPrefab;
+    private GameObject textSpawn;
     private GameObject gameManager;
     private CountdownTimer timer;
     private Rigidbody rb;
@@ -16,6 +18,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void Start()
     {
+        textSpawn = GameObject.FindGameObjectWithTag("TextSpawn");
         gameManager = GameObject.Find("Gamemanager");
         timer = gameManager.GetComponent<CountdownTimer>();
         rb = GetComponent<Rigidbody>();
@@ -37,6 +40,7 @@ public class EnemyBullet : MonoBehaviour
         {
             timer.TimeAdder(timeDamage);
             Instantiate(explosionEffectPrefab, transform.position, transform.rotation);
+            Instantiate(textPrefab,textSpawn.transform.position, textSpawn.transform.rotation);
             Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("Building"))

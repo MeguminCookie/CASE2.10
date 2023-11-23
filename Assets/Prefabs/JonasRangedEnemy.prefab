@@ -1739,6 +1739,8 @@ MonoBehaviour:
   gamemanager: {fileID: 0}
   clip: {fileID: 8300000, guid: a5bcaa1f77d03764ea036ac5325d16ae, type: 3}
   enemy: {fileID: 1203688576136026204}
+  timeDmgPrefab: {fileID: 1374886771446518644, guid: 856d2644595c68243b681f667c3a63b9,
+    type: 3}
 --- !u!114 &7320273374029920390
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ TagManager:
   - EnemyBullet
   - Building
   - GameManager
+  - TextSpawn
   layers:
   - Default
   - TransparentFX

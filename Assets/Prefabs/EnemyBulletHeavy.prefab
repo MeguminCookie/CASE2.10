@@ -151,6 +151,8 @@ MonoBehaviour:
   bulletSpeed: -80
   explosionEffectPrefab: {fileID: 3672890444221102887, guid: c306daa6747e051478b18bf05ca3084a,
     type: 3}
+  textPrefab: {fileID: 6335929677859102711, guid: c67f03b82e6ef764c8f345d3388d907e,
+    type: 3}
 --- !u!114 &2227417990673703387
 MonoBehaviour:
   m_ObjectHideFlags: 0
