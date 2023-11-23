@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
@@ -28,18 +29,21 @@ public class EnemyBullet : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
 
         }
-        else if(collision.gameObject.CompareTag("Player"))
+        else if (collision.gameObject.CompareTag("Player"))
         {
             timer.TimeAdder(timeDamage);
             Instantiate(explosionEffectPrefab, transform.position, transform.rotation);
             Destroy(gameObject);
         }
-       Instantiate(explosionEffectPrefab,transform.position, transform.rotation);
-       Destroy(gameObject);
+        else if (collision.gameObject.CompareTag("Building"))
+        {
+            Instantiate(explosionEffectPrefab, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
     }
 
     public float GetTimeDamage()
