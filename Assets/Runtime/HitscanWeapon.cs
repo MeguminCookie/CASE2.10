@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Animator))]
 public class HitscanWeapon : MonoBehaviour
 {
+    public AudioClip clip;
     [SerializeField] private bool AddBulletSpread = true;
     [SerializeField] private Vector3 BulletSpreadVariance = new Vector3(0.1f, 0.1f, 0.1f);
     [SerializeField] private ParticleSystem ShootingSystem;
@@ -91,6 +92,7 @@ public class HitscanWeapon : MonoBehaviour
                 TrailRenderer trail = Instantiate(BulletTrail, LeftBulletSpawnPoint.position, Quaternion.identity);
                 StartCoroutine(SpawnTrail(trail, hit.point, hit.normal, true));
                 LastShootTime = Time.time;
+                AudioSource.PlayClipAtPoint(clip, LeftBulletSpawnPoint.transform.position);
             }
             else
             {
@@ -144,6 +146,7 @@ public class HitscanWeapon : MonoBehaviour
                 TrailRenderer trail = Instantiate(BulletTrail, RightBulletSpawnPoint.position, Quaternion.identity);
                 StartCoroutine(SpawnTrail(trail, hit.point, hit.normal, true));
                 LastShootTime = Time.time;
+                AudioSource.PlayClipAtPoint(clip, RightBulletSpawnPoint.transform.position);
             }
             else
             {

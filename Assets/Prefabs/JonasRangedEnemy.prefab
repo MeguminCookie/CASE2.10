@@ -1733,13 +1733,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5986d6c353eb9304a9a9e58353479734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffects:
-  - {fileID: 8300000, guid: a5bcaa1f77d03764ea036ac5325d16ae, type: 3}
-  - {fileID: 8300000, guid: 813d6f3866c13fa499860f5b97eb9fb5, type: 3}
   timeToAdd: 10
   maxHealth: 1
   currentHealth: 0
   gamemanager: {fileID: 0}
+  clip: {fileID: 8300000, guid: a5bcaa1f77d03764ea036ac5325d16ae, type: 3}
+  enemy: {fileID: 1203688576136026204}
 --- !u!114 &7320273374029920390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1756,6 +1755,7 @@ MonoBehaviour:
   bulletPrefabs: {fileID: 215418569531538791, guid: 0f560f34485aa3b49b6ae10314b9386c,
     type: 3}
   shootingCD: 2.5
+  clip: {fileID: 8300000, guid: 3cba6e68e9c0d6043b5a0a2267c2d1aa, type: 3}
 --- !u!65 &2423616274752255389
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1789,7 +1789,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
