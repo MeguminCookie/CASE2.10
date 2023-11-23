@@ -52,6 +52,7 @@ public class HitscanWeapon : MonoBehaviour
     {
         if (LastShootTime + ShootDelay < Time.time)
         {
+            AudioSource.PlayClipAtPoint(clip, LeftBulletSpawnPoint.transform.position);
             Animator.SetBool("IsShooting", true);
             ShootingSystem.Play();
             Vector3 direction = GetDirectionToNearestEnemy();
@@ -92,7 +93,7 @@ public class HitscanWeapon : MonoBehaviour
                 TrailRenderer trail = Instantiate(BulletTrail, LeftBulletSpawnPoint.position, Quaternion.identity);
                 StartCoroutine(SpawnTrail(trail, hit.point, hit.normal, true));
                 LastShootTime = Time.time;
-                AudioSource.PlayClipAtPoint(clip, LeftBulletSpawnPoint.transform.position);
+                
             }
             else
             {
@@ -106,6 +107,7 @@ public class HitscanWeapon : MonoBehaviour
     {
         if (LastShootTime + ShootDelay < Time.time)
         {
+            AudioSource.PlayClipAtPoint(clip, RightBulletSpawnPoint.transform.position);
             Animator.SetBool("IsShooting", true);
             ShootingSystem.Play();
             Vector3 direction = GetDirectionToNearestEnemy();
@@ -146,7 +148,7 @@ public class HitscanWeapon : MonoBehaviour
                 TrailRenderer trail = Instantiate(BulletTrail, RightBulletSpawnPoint.position, Quaternion.identity);
                 StartCoroutine(SpawnTrail(trail, hit.point, hit.normal, true));
                 LastShootTime = Time.time;
-                AudioSource.PlayClipAtPoint(clip, RightBulletSpawnPoint.transform.position);
+                
             }
             else
             {
