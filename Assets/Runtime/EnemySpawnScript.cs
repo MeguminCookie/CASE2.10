@@ -11,6 +11,7 @@ public class EnemySpawnScript : MonoBehaviour
     private GameObject gamemanager;
     private CountdownTimer timer;
     [SerializeField] private float spawnTime;
+    [SerializeField] private GameObject spawnVFX;
     private bool hasSpawned;
     
     // Start is called before the first frame update
@@ -36,9 +37,12 @@ public class EnemySpawnScript : MonoBehaviour
 
     private IEnumerator SpawnEnemies(float spawnTime)
     {
-        randomNumber = Random.Range(0,spawnPoints.Length);
-        Instantiate(enemyPrefab, spawnPoints[randomNumber]);
         hasSpawned = true;
+        randomNumber = Random.Range(0,spawnPoints.Length);
+        Instantiate(spawnVFX, spawnPoints[randomNumber]);
+        yield return new WaitForSeconds(0.4f);
+        Instantiate(enemyPrefab, spawnPoints[randomNumber]);
+       
         yield return new WaitForSeconds(spawnTime);
         hasSpawned = false;
     }

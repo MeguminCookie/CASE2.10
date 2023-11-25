@@ -24,37 +24,13 @@ MonoBehaviour:
     - model: {fileID: 8926484042661614555}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614614}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614558}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614618}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614623}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614583}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614629}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614606}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614611}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614635}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614646}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614651}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614654}
@@ -3327,7 +3303,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 2
+      m_SerializableObject: 0.8
     m_Space: 2147483647
   m_Property:
     name: Lifetime
@@ -3661,7 +3637,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":0.0,"y":0.0,"z":2.5}'
+      m_SerializableObject: '{"x":0.0,"y":0.0,"z":4.0}'
     m_Space: 2147483647
   m_Property:
     name: Angle
@@ -5465,7 +5441,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 2
+      m_SerializableObject: 0.8
     m_Space: 2147483647
   m_Property:
     name: Lifetime
@@ -5799,7 +5775,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":0.0,"y":0.0,"z":-2.5}'
+      m_SerializableObject: '{"x":0.0,"y":0.0,"z":-4.0}'
     m_Space: 2147483647
   m_Property:
     name: Angle
