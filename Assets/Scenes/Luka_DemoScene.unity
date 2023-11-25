@@ -4828,8 +4828,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: TIMER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -36071,6 +36071,8 @@ MonoBehaviour:
   enemyPrefab: {fileID: 1203688576136026204, guid: c6af5fc491af8234d8468f5d9f95cf53,
     type: 3}
   spawnTime: 3
+  spawnVFX: {fileID: 1226458661571873218, guid: 609110869b1465142af05bd969c21a7f,
+    type: 3}
 --- !u!1001 &1547517631
 PrefabInstance:
   m_ObjectHideFlags: 0
