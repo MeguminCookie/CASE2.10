@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6557129971635716762}
   - component: {fileID: 7699300939642618537}
   - component: {fileID: 5815491526667235557}
+  - component: {fileID: 6661448053152684457}
   m_Layer: 0
   m_Name: SpawnVFX
   m_TagString: Untagged
@@ -158,3 +159,15 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &6661448053152684457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226458661571873218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46fa8bae149c5e3408c392b5cdbf29d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
